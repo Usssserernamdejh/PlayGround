@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#090c19" />
+  <title>NEON MAZE — Arcade Run</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Neon Maze home"><span class="brand-mark">N</span><span>NEON<span class="brand-dim">MAZE</span></span></a>
+      <div class="top-meta"><span class="live-dot"></span> ARCADE MODE <span class="meta-divider">/</span> SECTOR 07</div>
+      <button class="icon-button" id="soundButton" aria-label="Toggle sound" title="Toggle sound">♪</button>
+    </header>
+
+    <section class="game-layout" aria-label="Neon Maze game">
+      <div class="play-column">
+        <div class="eyebrow"><span>01</span> / THE RUN</div>
+        <div class="game-frame">
+          <div class="frame-top"><span>NEON GRID <b>•</b> 198X</span><span id="statusLabel">READY</span></div>
+          <div class="canvas-wrap">
+            <canvas id="game" aria-label="Pac-style maze game"></canvas>
+            <div class="screen-overlay" id="overlay">
+              <div class="overlay-card">
+                <div class="overlay-kicker"><span class="mini-dot"></span> SYSTEM READY</div>
+                <h1 id="overlayTitle">THE MAZE<br><em>IS ALIVE.</em></h1>
+                <p id="overlayText">One grid. Four hunters. Can you clear the sector?</p>
+                <button class="primary-button" id="playButton"><span>START RUN</span><b>↗</b></button>
+                <div class="overlay-foot">PRESS <kbd>ENTER</kbd> OR TAP START</div>
+              </div>
+            </div>
+            <div class="toast" id="toast" aria-live="polite"></div>
+          </div>
+          <div class="frame-bottom"><span><i class="tiny-square"></i> LIVE SIMULATION</span><span>BEST SCORE <b id="bestScore">000000</b></span></div>
+        </div>
+        <div class="controls-row">
+          <div class="control-hint"><span class="keycap">W</span><span class="keycap vertical">↑</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><span class="hint-label">MOVE</span></div>
+          <div class="control-right"><span class="hint-label">PAUSE</span><span class="keycap">P</span><span class="hint-label">OR</span><span class="keycap">ESC</span></div>
+        </div>
+        <div class="mobile-pad" aria-label="Touch controls">
+          <button data-dir="up" aria-label="Move up">▲</button>
+          <div><button data-dir="left" aria-label="Move left">◀</button><button data-dir="down" aria-label="Move down">▼</button><button data-dir="right" aria-label="Move right">▶</button></div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="eyebrow"><span>02</span> / RUN DATA</div>
+        <section class="stats-card">
+          <div class="score-block"><div class="label">SCORE</div><div class="score" id="score">000000</div></div>
+          <div class="stats-line"><span>HIGH SCORE</span><b id="sideBest">000000</b></div>
+          <div class="stats-line"><span>SECTOR</span><b>07 <i>▸</i> 08</b></div>
+          <div class="lives-block"><span class="label">SHIELDS</span><div id="lives" class="lives" aria-label="3 shields"><span>♥</span><span>♥</span><span>♥</span></div></div>
+        </section>
+
+        <section class="brief-card">
+          <div class="card-heading"><span class="heading-icon">✳</span><div><div class="label">MISSION BRIEF</div><small>RULES OF ENGAGEMENT</small></div></div>
+          <ul class="mission-list">
+            <li><span class="rule-number">01</span><span>Clear every <b>data pellet</b> to escape.</span></li>
+            <li><span class="rule-number">02</span><span>Collect <b>3 key shards</b> to unlock the core gate.</span></li>
+            <li><span class="rule-number">03</span><span>Power cells let you <b>hunt the hunters</b>.</span></li>
+            <li><span class="rule-number">04</span><span>Watch the <b>shock tiles</b> — they pulse on and off.</span></li>
+          </ul>
+        </section>
+
+        <section class="threat-card">
+          <div class="card-heading"><span class="heading-icon danger">⌁</span><div><div class="label">THREAT INDEX</div><small>HOSTILE SIGNATURES</small></div></div>
+          <div class="threat-row"><span class="ghost-icon red-ghost">●</span><span><b>HUNTER</b><small>Tracks your trail</small></span><i class="threat-bar"><u style="width:90%"></u></i></div>
+          <div class="threat-row"><span class="ghost-icon pink-ghost">●</span><span><b>ORACLE</b><small>Predicts your route</small></span><i class="threat-bar"><u style="width:72%"></u></i></div>
+          <div class="threat-row"><span class="ghost-icon cyan-ghost">●</span><span><b>DRIFTER</b><small>Guards the lanes</small></span><i class="threat-bar"><u style="width:58%"></u></i></div>
+          <div class="threat-row"><span class="ghost-icon amber-ghost">●</span><span><b>GLITCH</b><small>Erratic movement</small></span><i class="threat-bar"><u style="width:80%"></u></i></div>
+        </section>
+        <div class="sidebar-footer"><span>MADE FOR THE BOLD</span><span>© NM-07</span></div>
+      </aside>
+    </section>
+    <footer class="page-footer"><span>NEON MAZE <b>—</b> SURVIVE THE GRID</span><span class="footer-right">NO SAVE POINTS. NO SECOND CHANCES.</span></footer>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
